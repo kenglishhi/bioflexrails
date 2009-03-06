@@ -1,0 +1,10 @@
+This is the example code to accompany the Biographics,BioSQL and rails tutorials
+at http://biorelated.wordpress.com/2009/01/08/bio-graphics-biosql-and-rails-part-1/
+
+Required gems
+*Bio 1.2.1
+*bio-graphics 1.4
+*rails_sql_views
+
+
+
