@@ -1,10 +1,10 @@
-This my  new bioflexrails project
-at http://biorelated.wordpress.com/2009/01/08/bio-graphics-biosql-and-rails-part-1/
+This my new bioflexrails project at http://honoluluhacker.com.
 
 Required gems
-*Bio 1.2.1
-*bio-graphics 1.4
-*rails_sql_views
 
-
+bio (1.3.0)
+bio-graphics (1.4)
+bioruby (0.6.4)
+cairo (1.8.0)
+rails_sql_views (0.6.1)
 
