@@ -1,0 +1,21 @@
+<h1>Listing biosequences</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for biosequence in @biosequences %>
+ 
+  <tr>
+    <td><%= link_to h(biosequence.bioentry.name), biosequence%></td>
+
+    <td><%= link_to 'Edit', edit_biosequence_path(biosequence) %></td>
+    
+    <td><%= link_to 'Destroy', biosequence, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New biosequence', new_biosequence_path %>

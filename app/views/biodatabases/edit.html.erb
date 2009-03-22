@@ -1,0 +1,12 @@
+<h1>Editing biodatabase</h1>
+
+<% form_for(@biodatabase) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @biodatabase %> |
+<%= link_to 'Back', biodatabases_path %>

@@ -1,0 +1,8 @@
+<h2><%= @biosequence.bioentry.name%>(<%= @biosequence.alphabet %>)</h2>
+<p>Sequence</p>
+<%= @biosequence.seq %><br/>
+
+<%= render_image(@biosequence) %><br/>
+
+
+<p><%= link_to 'Edit', edit_biosequence_path(@biosequence) %> </p>

@@ -1,0 +1,12 @@
+<h1>Editing biosequence</h1>
+
+<% form_for(@biosequence) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @biosequence %> |
+<%= link_to 'Back', biosequences_path %>

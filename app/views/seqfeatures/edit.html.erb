@@ -1,0 +1,12 @@
+<h1>Editing seqfeature</h1>
+
+<% form_for(@seqfeature) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @seqfeature %> |
+<%= link_to 'Back', seqfeatures_path %>

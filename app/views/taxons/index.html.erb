@@ -1,0 +1,18 @@
+<h1>Listing taxons</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for taxon in @taxons %>
+  <tr>
+    <td><%= link_to 'Show', taxon %></td>
+    <td><%= link_to 'Edit', edit_taxon_path(taxon) %></td>
+    <td><%= link_to 'Destroy', taxon, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New taxon', new_taxon_path %>
