@@ -20,13 +20,13 @@ module Paperclip
        Paperclip.run "formatdb",  args 
   #       puts `#{cmd}` 
        f = File.new( [@file.path,"nin"].compact.join(".")  ) 
-       puts "new file = #{f.inspect} " 
+       puts "[kenglish]  self = #{self.inspect}" 
 #      @format = 'kevin'
 #      @file.pos = 0 # Reset the file position incase it is coming out of a another processor      
 #      cmd = "formatdb -i #{@file} -p F -o F" 
 
 ##      dst << Liquid::Template.parse(@file.read).render(Liquid::Context.new(nil, { :site => @instance.site }))
-      f
+      File.new("#{@file.path}.nin")
     end
 
   end
