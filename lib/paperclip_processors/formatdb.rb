@@ -1,5 +1,3 @@
-
-
 module Paperclip
   class Formatdb < Processor
 
@@ -16,13 +14,19 @@ module Paperclip
     end
 
     def make
-      @format = 'kevin'
-      @file.pos = 0 # Reset the file position incase it is coming out of a another processor      
-      cmd =
-      `touch /tmp/temppppkevin`
-      dst = Tempfile.new([@basename, @format].compact.join("."))
-#      dst << Liquid::Template.parse(@file.read).render(Liquid::Context.new(nil, { :site => @instance.site }))
-      dst
+       cmd = "formatdb -i #{@file.path} -p F -o F -n #{@file.path} " 
+       args = " -i #{@file.path} -p F -o F -n #{@file.path} " 
+       puts "[kenglish] HELLO KEVIN  #{@file.path} cmd = #{cmd} file = #{@file.path}" 
+       Paperclip.run "formatdb",  args 
+  #       puts `#{cmd}` 
+       f = File.new( [@file.path,"nin"].compact.join(".")  ) 
+       puts "new file = #{f.inspect} " 
+#      @format = 'kevin'
+#      @file.pos = 0 # Reset the file position incase it is coming out of a another processor      
+#      cmd = "formatdb -i #{@file} -p F -o F" 
+
+##      dst << Liquid::Template.parse(@file.read).render(Liquid::Context.new(nil, { :site => @instance.site }))
+      f
     end
 
   end

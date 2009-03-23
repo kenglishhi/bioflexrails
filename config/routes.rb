@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :fasta_files
+
+#  map.resources :fasta_files
 
   map.resources :taxons
 
@@ -45,7 +46,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-   map.root :controller => "biosequences"
+   map.root :controller => "fasta_files"
 
   # See how all your routes lay out with "rake routes"
 
