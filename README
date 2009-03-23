@@ -1,4 +1,4 @@
-This my new bioflexrails project at http://honoluluhacker.com.
+This my new bioflexrails project started by Kevin English (http://honoluluhacker.com) 
 
 Required gems
 
@@ -7,4 +7,5 @@ bio-graphics (1.4)
 bioruby (0.6.4)
 cairo (1.8.0)
 rails_sql_views (0.6.1)
+
 
