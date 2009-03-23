@@ -18,8 +18,8 @@ development:
   adapter: mysql
   encoding: utf8
   database: biosql_development
-  username: root
-  password: root
+  username: biosql
+  password: biosql
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -29,15 +29,15 @@ test:
   adapter: mysql
   encoding: utf8
   database: biosql_test
-  username: root
-  password: root
+  username: biosql
+  password: biosql
   socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql
   encoding: utf8
   database: biosql_production
-  username: root
-  password: root
+  username: biosql
+  password: biosql
   socket: /var/run/mysqld/mysqld.sock
 
