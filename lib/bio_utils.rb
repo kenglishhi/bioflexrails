@@ -22,8 +22,20 @@ module  BioUtils
         end
       end
       unless fasta_data.empty?
-        puts "FASTA DATA #{ fasta_data} "
+        puts " FASTA DATA #{ fasta_data} "
+        new_file = "#{RAILS_ROOT}/tmp/#{entry.definition}.fasta"
+        puts "#new_file = #{new_file}  "
+        
+        File.open(new_file, 'w') do |f2|  
+          f2.puts fasta_data 
+        end   
+        f= File.new(new_file)
+        ff = FastaFile.new
+        ff.fasta =  f
+        ff.save
+
       end
+
     end
   end
   private 

@@ -5,7 +5,8 @@ class FastaFilesController < ApplicationController
     config.create.multipart = true
     config.create.columns = [:label, :fasta] 
     config.update.columns = [:label] 
-
+    config.action_links.add "Blast", :parameters => {:controller => 'blast'},
+                             :action => 'index', :type => :table, :page => true
   end
 
-end
+end 

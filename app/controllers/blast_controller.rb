@@ -1,5 +1,6 @@
 class BlastController < ApplicationController
   include BioUtils
+
   def index
      @fasta_file_options = FastaFile.find(:all).map{ |f| [f.fasta_file_name,f.id] }       
   end 
