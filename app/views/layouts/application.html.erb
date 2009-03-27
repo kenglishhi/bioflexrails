@@ -6,15 +6,27 @@
 <title>Bio Rails App</title>
 
    <%= javascript_include_tag :defaults %>
+   <%= stylesheet_link_tag 'standard' %>
    <%= active_scaffold_includes %>
-    
     <!-- BEGIN additional_content_for_head -->
     <%= yield :additional_content_for_head %>
     <!-- END additional_content_for_head -->
-
 </head>
-
 <body>
+
+<div id="birhead">
+
+<h1><%= link_to "Bio Rails App" %></h1>
+<div id="birhead-info">
+<div id="top-right-menu">
+<p>Howdy, <a title="Edit your profile" href="profile.php">kenglish</a><span class="turbo-nag hidden" style="display: inline;"> | <a href="tools.php">Turbo</a></span> |
+<a title="Log Out" href="http://honoluluhacker.com/wp-login.php?action=logout&amp;_wpnonce=9cc8ba65a4">Log Out</a></p>
+</div>
+
+
+</div>
+</div>
+
 
 <div id="content">
 <%= yield -%> 
