@@ -24,5 +24,12 @@ class Biosequence < ActiveRecord::Base
         @my_panel.draw(output)
         return output.string
   end
+  def self.load_fasta(file)
+    ff = Bio::FlatFile.open(Bio::FastaFormat, file )
 
+    ff.each do |entry|
+#      self.create(:seq => :version: nil, length: nil, alphabet: nil, >)
+      
+    end  
+  end
 end
