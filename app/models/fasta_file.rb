@@ -5,8 +5,6 @@ class FastaFile < ActiveRecord::Base
   before_validation :set_label
   validates_uniqueness_of :label
   before_destroy :remove_fasta_dbs
-#  after_save :run_formatdb
-#  after_save :extract_sequences
   
   def set_label
     if self.label.blank?
@@ -25,13 +23,11 @@ class FastaFile < ActiveRecord::Base
     end
 #    Bioentry.load_fasta fasta.path
   end
-
-  def run_formatdb
-    if fasta # and File.exists?(fasta.path)
+  def formatdb
+    if fasta and File.exists?(fasta.path)
       args = " -i #{fasta.path} -p F -o F -n #{fasta.path} " 
       puts "[kenglish] HELLO KEVIN  #{fasta.path} args = #{args}" 
       Paperclip.run "formatdb",  args
-      Bioentry.load_fasta fasta.path
     end
   end
   def remove_fasta_dbs

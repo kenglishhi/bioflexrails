@@ -8,12 +8,13 @@ class BlastController < ApplicationController
   end
   
   def blast
-    query_biodatabase = FastaFile.find( params[:query_biodatabase_id ] ) 
-    db_biodatabase = FastaFile.find( params[:db_biodatabase_id ] ) 
+    query_biodatabase = Biodatabase.find( params[:query_biodatabase_id ] ) 
+    db_biodatabase = Biodatabase.find( params[:db_biodatabase_id ] ) 
     term_name = params[:term_name] 
 #    db_id = FastaFile.find( params[:database_file_id] ) 
-#    blastn_2_files(query_file.fasta.path, database_file.fasta.path)
-#    redirect_to :controller => 'fasta_files',:action =>'index'
+    query_biodatabase.blast_against(db_biodatabase) 
+    blastn_2_files(query_biodatabase.fasta_file.fasta.path, db_biodatabase.fasta_file.fasta.path)
+    redirect_to :controller => 'fasta_files',:action =>'index'
   end
   
 end
