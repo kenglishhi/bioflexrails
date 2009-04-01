@@ -81,3 +81,24 @@ h1 {
 	font-variant:normal;
 	font-weight:bold;	
 }
+
+table.blast-main-form-table {
+  width: auto;
+}
+table.blast-sub-form-table th {
+
+    vertical-align: top;
+    text-align: right;
+   background-color: transparent !important;
+	color:#555555;
+	font-family:verdana,sans-serif;
+	font-size:11px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+}
+
+*/

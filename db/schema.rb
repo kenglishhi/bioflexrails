@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20090321084233) do
     t.string   "fasta_file_name"
     t.string   "fasta_content_type"
     t.integer  "fasta_file_size"
+    t.integer  "biodatabase_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

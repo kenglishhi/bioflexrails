@@ -6,8 +6,8 @@
 <title>Bio Rails App</title>
 
    <%= javascript_include_tag :defaults %>
-   <%= stylesheet_link_tag 'standard' %>
    <%= active_scaffold_includes %>
+   <%= stylesheet_link_tag 'standard' %>
     <!-- BEGIN additional_content_for_head -->
     <%= yield :additional_content_for_head %>
     <!-- END additional_content_for_head -->
@@ -16,19 +16,20 @@
 
 <div id="birhead">
 
-<h1><%= link_to "Bio Rails App" %></h1>
+<h1><%= link_to "Bio Rails App", '/' %></h1>
 <div id="birhead-info">
 <div id="top-right-menu">
-<p>Howdy, <%= link_to "kenglish", '/' %> <span class="turbo-nag hidden" style="display: inline;"> 
-|
+<p> <span class="turbo-nag hidden" style="display: inline;"> 
+
 <%= link_to "Fasta Files", :controller => 'fasta_files' %> 
  |
 <%= link_to "Databases", :controller => 'biodatabases' %>
 |
 <%= link_to "Sequencies", :controller => 'biosequences' %>
+|
+<%= link_to "Blast", :controller => 'blast' %>
+
 </div>
-
-
 </div>
 </div>
 

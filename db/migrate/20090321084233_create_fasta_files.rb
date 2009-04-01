@@ -4,6 +4,7 @@ class CreateFastaFiles < ActiveRecord::Migration
       t.string :label
       t.string  :fasta_file_name, :fasta_content_type
       t.integer :fasta_file_size
+      t.integer :biodatabase_id
       t.timestamps
     end
   end

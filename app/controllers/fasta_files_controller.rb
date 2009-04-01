@@ -2,9 +2,9 @@ class FastaFilesController < ApplicationController
   active_scaffold :fasta_files do |config| 
     
     config.list.label = "Fasta Files"
-    config.list.columns = [:label, :fasta_file_name, :fasta_content_type, :fasta_file_size ]
+    config.list.columns = [:label, :fasta_file_name, :fasta_content_type, :fasta_file_size, :biodatabase ]
     config.create.multipart = true
-    config.create.columns = [:label, :fasta] 
+    config.create.columns = [:label, :fasta, ] 
     config.update.columns = [:label] 
     config.show.columns = [:label, :fasta_file_name, :fasta_file_size,:created_at,:fasta_data]
     config.action_links.add "Upload Files", :action => 'upload_many', :type => :table, :page => true
@@ -26,5 +26,12 @@ class FastaFilesController < ApplicationController
       redirect_to :action => :index
     end
   end
+  def extract_sequences
+    fasta_file = FastaFile.find(params[:id])
+    fasta_file.extract_sequences
+    redirect_to :action => :index
+    
+  end
+  
   
 end 
