@@ -19,8 +19,13 @@
 <h1><%= link_to "Bio Rails App" %></h1>
 <div id="birhead-info">
 <div id="top-right-menu">
-<p>Howdy, <a title="Edit your profile" href="profile.php">kenglish</a><span class="turbo-nag hidden" style="display: inline;"> | <a href="tools.php">Turbo</a></span> |
-<a title="Log Out" href="http://honoluluhacker.com/wp-login.php?action=logout&amp;_wpnonce=9cc8ba65a4">Log Out</a></p>
+<p>Howdy, <%= link_to "kenglish", '/' %> <span class="turbo-nag hidden" style="display: inline;"> 
+|
+<%= link_to "Fasta Files", :controller => 'fasta_files' %> 
+ |
+<%= link_to "Databases", :controller => 'biodatabases' %>
+|
+<%= link_to "Sequencies", :controller => 'biosequences' %>
 </div>
 
 

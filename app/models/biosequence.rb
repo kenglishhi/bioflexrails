@@ -5,7 +5,7 @@ class Biosequence < ActiveRecord::Base
   set_primary_key :bioentry_id
   belongs_to :bioentry
 
-
+ delegate :name, :to => :bioentry
   def self.draw_graphic(value)
       #get the name and length of the main feature to be drawn
      main_feature = Bioentry.find(value)
