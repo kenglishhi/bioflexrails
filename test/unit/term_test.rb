@@ -1,8 +1,7 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class TermTest < ActiveSupport::TestCase
   # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  should_have_many :bioentry_relationships 
+  should_belong_to :ontology 
 end
