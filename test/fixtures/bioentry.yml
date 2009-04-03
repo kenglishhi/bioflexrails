@@ -79,6 +79,16 @@ bioentry_007:
   bioentry_id: "7"
   description: 
   identifier: 
+bioentry_020: 
+  name: "1420338:1"
+  biodatabase_id: "5"
+  division: 
+  accession: "1420338:1"
+  taxon_id: 
+  version: "1"
+  bioentry_id: "20"
+  description: 
+  identifier: 
 bioentry_019: 
   name: ZooX20001C06.g_044
   biodatabase_id: "4"
@@ -99,6 +109,16 @@ bioentry_008:
   bioentry_id: "8"
   description: 
   identifier: 
+bioentry_021: 
+  name: "1420339:1"
+  biodatabase_id: "5"
+  division: 
+  accession: "1420339:1"
+  taxon_id: 
+  version: "1"
+  bioentry_id: "21"
+  description: 
+  identifier: 
 bioentry_010: 
   name: "CAXB969.g1  CHROMAT_FILE: CAXB969.g1 PHD"
   biodatabase_id: "3"
@@ -117,6 +137,16 @@ bioentry_009:
   taxon_id: 
   version: "1"
   bioentry_id: "9"
+  description: 
+  identifier: 
+bioentry_022: 
+  name: "1420340:1"
+  biodatabase_id: "5"
+  division: 
+  accession: "1420340:1"
+  taxon_id: 
+  version: "1"
+  bioentry_id: "22"
   description: 
   identifier: 
 bioentry_011: 

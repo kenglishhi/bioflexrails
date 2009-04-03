@@ -1,16 +1,21 @@
 --- 
-biodatabase_001: 
+biodatabase_EST_Clade_A_1: 
   name: EST_Clade_A_1.fasta
   biodatabase_id: "2"
   authority: 
   description: 
-biodatabase_002: 
+biodatabase_EST_Clade_A_6: 
   name: EST_Clade_A_6.fasta
   biodatabase_id: "3"
   authority: 
   description: 
-biodatabase_003: 
+biodatabase_EST_Clade_C_6: 
   name: EST_Clade_C_6.fasta
   biodatabase_id: "4"
+  authority: 
+  description: 
+biodatabase_EST_Clade_A_3: 
+  name: EST_Clade_A_3.fasta
+  biodatabase_id: "5"
   authority: 
   description: 

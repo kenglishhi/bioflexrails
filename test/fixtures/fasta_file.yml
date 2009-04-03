@@ -17,6 +17,15 @@ fasta_file_003:
   biodatabase_id: "4"
   fasta_file_id: "5"
   fasta_content_type: application/octet-stream
+fasta_file_004: 
+  fasta_file_name: EST_Clade_A_3.fasta
+  label: EST_Clade_A_3
+  created_at: 2009-04-03 07:33:04
+  fasta_file_size: "1174"
+  updated_at: 2009-04-03 07:34:31
+  biodatabase_id: "5"
+  fasta_file_id: "6"
+  fasta_content_type: application/octet-stream
 fasta_file_001: 
   fasta_file_name: EST_Clade_A_1.fasta
   label: EST_Clade_A_1
