@@ -1,7 +1,191 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
-#
-# two:
-#   column: value
+--- 
+bioentry_015: 
+  name: ZooX20008C04.g_014
+  biodatabase_id: "4"
+  division: 
+  accession: ZooX20008C04.g_014
+  taxon_id: 
+  version: "1"
+  bioentry_id: "15"
+  description: 
+  identifier: 
+bioentry_004: 
+  name: 1420341:1KENGLISH-kenglish-kenglish
+  biodatabase_id: "1"
+  division: 
+  accession: 1420341:1KENGLISH-kenglish-kenglish
+  taxon_id: 
+  version: "1"
+  bioentry_id: "4"
+  description: 
+  identifier: 
+bioentry_016: 
+  name: ZooX023B06.g_046
+  biodatabase_id: "4"
+  division: 
+  accession: ZooX023B06.g_046
+  taxon_id: 
+  version: "1"
+  bioentry_id: "16"
+  description: 
+  identifier: 
+bioentry_005: 
+  name: 1420341:2KENGLISH-kenglish-kenglish
+  biodatabase_id: "1"
+  division: 
+  accession: 1420341:2KENGLISH-kenglish-kenglish
+  taxon_id: 
+  version: "1"
+  bioentry_id: "5"
+  description: 
+  identifier: 
+bioentry_017: 
+  name: ZooX004A04.g_032
+  biodatabase_id: "4"
+  division: 
+  accession: ZooX004A04.g_032
+  taxon_id: 
+  version: "1"
+  bioentry_id: "17"
+  description: 
+  identifier: 
+bioentry_006: 
+  name: "1420338:1"
+  biodatabase_id: "2"
+  division: 
+  accession: "1420338:1"
+  taxon_id: 
+  version: "1"
+  bioentry_id: "6"
+  description: 
+  identifier: 
+bioentry_018: 
+  name: ZooX023B09.g_077
+  biodatabase_id: "4"
+  division: 
+  accession: ZooX023B09.g_077
+  taxon_id: 
+  version: "1"
+  bioentry_id: "18"
+  description: 
+  identifier: 
+bioentry_007: 
+  name: "CAXB968.b1  CHROMAT_FILE: CAXB968.b1 PHD"
+  biodatabase_id: "3"
+  division: 
+  accession: "CAXB968.b1  CHROMAT_FILE: CAXB968.b1 PHD_FILE: CAXB968.b1.phd.1 CHEM: term DYE: big TIME: Tue Jul  5 17:28:10 2005 TEMPLATE: CAX"
+  taxon_id: 
+  version: "1"
+  bioentry_id: "7"
+  description: 
+  identifier: 
+bioentry_019: 
+  name: ZooX20001C06.g_044
+  biodatabase_id: "4"
+  division: 
+  accession: ZooX20001C06.g_044
+  taxon_id: 
+  version: "1"
+  bioentry_id: "19"
+  description: 
+  identifier: 
+bioentry_008: 
+  name: "CAXB968.g1  CHROMAT_FILE: CAXB968.g1 PHD"
+  biodatabase_id: "3"
+  division: 
+  accession: "CAXB968.g1  CHROMAT_FILE: CAXB968.g1 PHD_FILE: CAXB968.g1.phd.1 CHEM: term DYE: big TIME: Tue Jul  5 17:26:39 2005 TEMPLATE: CAX"
+  taxon_id: 
+  version: "1"
+  bioentry_id: "8"
+  description: 
+  identifier: 
+bioentry_010: 
+  name: "CAXB969.g1  CHROMAT_FILE: CAXB969.g1 PHD"
+  biodatabase_id: "3"
+  division: 
+  accession: "CAXB969.g1  CHROMAT_FILE: CAXB969.g1 PHD_FILE: CAXB969.g1.phd.1 CHEM: term DYE: big TIME: Tue Jul  5 17:26:39 2005 TEMPLATE: CAX"
+  taxon_id: 
+  version: "1"
+  bioentry_id: "10"
+  description: 
+  identifier: 
+bioentry_009: 
+  name: "CAXB969.b1  CHROMAT_FILE: CAXB969.b1 PHD"
+  biodatabase_id: "3"
+  division: 
+  accession: "CAXB969.b1  CHROMAT_FILE: CAXB969.b1 PHD_FILE: CAXB969.b1.phd.1 CHEM: term DYE: big TIME: Tue Jul  5 17:28:11 2005 TEMPLATE: CAX"
+  taxon_id: 
+  version: "1"
+  bioentry_id: "9"
+  description: 
+  identifier: 
+bioentry_011: 
+  name: "CAXB975.b1  CHROMAT_FILE: CAXB975.b1 PHD"
+  biodatabase_id: "3"
+  division: 
+  accession: "CAXB975.b1  CHROMAT_FILE: CAXB975.b1 PHD_FILE: CAXB975.b1.phd.1 CHEM: term DYE: big TIME: Tue Jul  5 17:28:11 2005 TEMPLATE: CAX"
+  taxon_id: 
+  version: "1"
+  bioentry_id: "11"
+  description: 
+  identifier: 
+bioentry_012: 
+  name: "CAXB975.g1  CHROMAT_FILE: CAXB975.g1 PHD"
+  biodatabase_id: "3"
+  division: 
+  accession: "CAXB975.g1  CHROMAT_FILE: CAXB975.g1 PHD_FILE: CAXB975.g1.phd.1 CHEM: term DYE: big TIME: Tue Jul  5 17:26:40 2005 TEMPLATE: CAX"
+  taxon_id: 
+  version: "1"
+  bioentry_id: "12"
+  description: 
+  identifier: 
+bioentry_001: 
+  name: 1420338:1KENGLISHKENGLISHKENGLISH-kengli
+  biodatabase_id: "1"
+  division: 
+  accession: 1420338:1KENGLISHKENGLISHKENGLISH-kenglish-kenglish
+  taxon_id: 
+  version: "1"
+  bioentry_id: "1"
+  description: 
+  identifier: 
+bioentry_013: 
+  name: ZooX20010E16.g
+  biodatabase_id: "4"
+  division: 
+  accession: ZooX20010E16.g
+  taxon_id: 
+  version: "1"
+  bioentry_id: "13"
+  description: 
+  identifier: 
+bioentry_002: 
+  name: 1420339:1KENGLISH-kenglish-kenglish
+  biodatabase_id: "1"
+  division: 
+  accession: 1420339:1KENGLISH-kenglish-kenglish
+  taxon_id: 
+  version: "1"
+  bioentry_id: "2"
+  description: 
+  identifier: 
+bioentry_014: 
+  name: ZooX20007P20.g_066
+  biodatabase_id: "4"
+  division: 
+  accession: ZooX20007P20.g_066
+  taxon_id: 
+  version: "1"
+  bioentry_id: "14"
+  description: 
+  identifier: 
+bioentry_003: 
+  name: 1420340:1KENGLISH-kenglish-kenglish
+  biodatabase_id: "1"
+  division: 
+  accession: 1420340:1KENGLISH-kenglish-kenglish
+  taxon_id: 
+  version: "1"
+  bioentry_id: "3"
+  description: 
+  identifier: 
