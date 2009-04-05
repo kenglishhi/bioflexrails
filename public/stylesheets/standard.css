@@ -100,5 +100,9 @@ table.blast-sub-form-table th {
 	font-weight:normal;
 	line-height:normal;
 }
+div.loading {
+	background: url(/images/active_scaffold/default/indicator.gif);
+	text-indent: -999px;
+}
 
 */
