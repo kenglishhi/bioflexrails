@@ -13,6 +13,7 @@ class Biodatabase < ActiveRecord::Base
       if  bioentry.biosequence
         report = factory.query(bioentry.biosequence.seq) 
         report.each do |hit|
+          
           if hit.evalue < options[:evalue]
             object_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',hit.definition,db_biodatabase.name ])
 #            puts object_bioentry.biosequence.seq
@@ -35,16 +36,16 @@ class Biodatabase < ActiveRecord::Base
     
     fasta.each do |entry|
       report = factory.query(entry)
-      debugger
       
       report.each do |hit|
-          if hit.evalue < options[:evalue]
+        debugger
+          if hit.evalue < options[:evalue] # && hit.identity == options[:identity] &&  hit.score == options[:score]
             subject_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',entry.definition,self.name ])
 #            puts "subject_bioentry = #{subject_bioentry} "
             object_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',hit.definition,db_biodatabase.name ])
 #            puts object_bioentry.biosequence.seq
             BioentryRelationship.create(:term => term, :subject_bioentry => subject_bioentry, :object_bioentry => object_bioentry)
- #           puts "HIT:#{hit.definition} evalue:#{hit.evalue} class:#{hit.evalue.class}"
+            puts "HIT:#{hit.definition} evalue:#{hit.evalue} class:#{hit.evalue.class}"
           else
 #            puts "evalue too big #{hit.evalue}"
           end

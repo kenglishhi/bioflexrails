@@ -11,5 +11,5 @@ Ontology.delete_all
 ontology = Ontology.create(:name => 'Onotology 1')
 term = Term.create(:name => 'Term 1', :ontology => ontology ) 
 
-sequence_db.blast_against(target_db,term,{:evalue => 1})
+sequence_db.blast_against(target_db,term,{:evalue => 1, :identity => 18})
 
