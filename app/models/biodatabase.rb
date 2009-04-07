@@ -27,7 +27,7 @@ class Biodatabase < ActiveRecord::Base
     end
   end
   
-  def blast_against(db_biodatabase, term, options)
+  def blast_against_file2(db_biodatabase, term, options)
     require 'pp'
     db_biodatabase.fasta_file.formatdb 
     cmd_line_args = "" 
@@ -54,5 +54,41 @@ class Biodatabase < ActiveRecord::Base
       
     end
   end  
+  def blast_against(db_biodatabase, term, options)
+    options[:evalue] = 0.001 unless options[:evalue] 
+    db_biodatabase.fasta_file.formatdb
+    start_time = Time.now
+    command = " blastall -p blastn -i #{self.fasta_file.fasta.path} -d #{db_biodatabase.fasta_file.fasta.path} -e #{options[:evalue]}  -b 20 -v 20 "
+    puts command
+    tempfile = Tempfile.new('blastout')
+    tempfile.close(false)
+    command <<  "-o  #{tempfile.path} " 
+    system(*command)
+
+     # After system(), error checks will be needed but skipped.
+    tempfile.open
+
+    ff = Bio::FlatFile.open(tempfile)
+
+    ff.each do |report|
+      # For example, prints query_def and target_def
+      report.each do |hit|
+    
+        subject_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',report.query_def[0..39],self.name ])
+        object_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',hit.target_def[0..39],db_biodatabase.name ])
+        if  subject_bioentry && object_bioentry
+          BioentryRelationship.create(:term => term, :subject_bioentry => subject_bioentry, :object_bioentry => object_bioentry)
+        else 
+          puts "ERR finding  subject_bioentry = #{subject_bioentry} [#{report.query_def[0..39]},#{self.name}]  or #{object_bioentry} [#{hit.target_def[0..39]},#{db_biodatabase.name}]" 
+        end
+    
+      end
+    end
+    ff.close
+    tempfile.close(true)
+    end_time = Time.now
+    puts "BLAST #{self.name} #{db_biodatabase.name} took #{end_time - start_time } " 
+    
+  end 
   
 end

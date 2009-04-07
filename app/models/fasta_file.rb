@@ -24,6 +24,7 @@ class FastaFile < ActiveRecord::Base
 #    Bioentry.load_fasta fasta.path
   end
   def formatdb
+    puts "called formatdb fasta = #{fasta} File.exists?(fasta.path) = #{File.exists?(fasta.path)} " 
     if fasta and File.exists?(fasta.path)
       args = " -i #{fasta.path} -p F -o F -n #{fasta.path} " 
       puts "[kenglish] HELLO KEVIN  #{fasta.path} args = #{args}" 

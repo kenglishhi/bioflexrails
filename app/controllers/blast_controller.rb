@@ -10,9 +10,8 @@ class BlastController < ApplicationController
   def blast
     query_biodatabase = Biodatabase.find( params[:query_biodatabase_id ] ) 
     db_biodatabase = Biodatabase.find( params[:db_biodatabase_id ] ) 
-    term_name = params[:term_name]
     ontology = Ontology.find(:first)
-    term = Term.create(:name => 'Term 1', :ontology => ontology ) 
+    term = Term.create(:name => params[:term_name] , :ontology => ontology ) 
     # :evalue => 1
 #    db_id = FastaFile.find( params[:database_file_id] ) 
     query_biodatabase.blast_against(db_biodatabase, term, { :evalue => params[:evalue].to_f, :identity => params[:identity], :score => params[:score] }  ) 
