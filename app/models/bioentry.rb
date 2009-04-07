@@ -7,10 +7,10 @@ class Bioentry < ActiveRecord::Base
   has_one :biosequence
   has_one :fasta_file
 
-  def self.load_fasta(file)
-    logger.error("[kenglish] load fasta file #{file}")
-    ff = Bio::FlatFile.open(Bio::FastaFormat, file )
-    biodatabase = Biodatabase.create(:name => File.basename(file))
+  def self.load_fasta(fasta_file)
+    logger.error("[kenglish] load fasta file #{fasta_file.fasta.path}")
+    ff = Bio::FlatFile.open(Bio::FastaFormat, fasta_file.fasta.path )
+    biodatabase = Biodatabase.create(:name => File.basename(fasta_file.label))
     ff.each do |entry|
       bioentry = create(:biodatabase => biodatabase, :name => entry.definition, :accession => entry.definition, :version => 1)
       Biosequence.create(:bioentry => bioentry, :seq => entry.seq, :version => 1, :alphabet => 'dna', :length => entry.seq.length)

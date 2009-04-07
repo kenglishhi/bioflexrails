@@ -10,11 +10,13 @@ class BlastController < ApplicationController
   def blast
     query_biodatabase = Biodatabase.find( params[:query_biodatabase_id ] ) 
     db_biodatabase = Biodatabase.find( params[:db_biodatabase_id ] ) 
-    term_name = params[:term_name] 
+    term_name = params[:term_name]
+    ontology = Ontology.find(:first)
+    term = Term.create(:name => 'Term 1', :ontology => ontology ) 
+    # :evalue => 1
 #    db_id = FastaFile.find( params[:database_file_id] ) 
-    query_biodatabase.blast_against(db_biodatabase) 
-    blastn_2_files(query_biodatabase.fasta_file.fasta.path, db_biodatabase.fasta_file.fasta.path)
-    redirect_to :controller => 'fasta_files',:action =>'index'
+    query_biodatabase.blast_against(db_biodatabase, term, { :evalue => params[:evalue].to_f, :identity => params[:identity], :score => params[:score] }  ) 
+    redirect_to :controller => 'bioentry_relationships',:action =>'index'
   end
   
 end

@@ -17,8 +17,8 @@ class FastaFile < ActiveRecord::Base
   
   def extract_sequences
     if self.fasta  # and File.exists?(fasta.path)
-      Bioentry.load_fasta fasta.path
-      self.biodatabase = Biodatabase.find_by_name(self.fasta_file_name)
+      Bioentry.load_fasta(self)
+      self.biodatabase = Biodatabase.find_by_name(self.label)
       self.save
     end
 #    Bioentry.load_fasta fasta.path
