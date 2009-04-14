@@ -8,7 +8,7 @@ class FastaFile < ActiveRecord::Base
   
   def set_label
     if self.label.blank?
-      if fasta_file_name.match(/\.fasta$/)
+      if fasta_file_name && fasta_file_name.match(/\.fasta$/)
         self.label= fasta_file_name.sub(/\.fasta$/,'')
         logger.error("[kenglish] setting label  #{self.label}")
       end
