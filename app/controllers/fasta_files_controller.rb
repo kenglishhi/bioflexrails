@@ -20,6 +20,7 @@ class FastaFilesController < ApplicationController
         unless image_param[:uploaded_data].blank?
           fasta_file = FastaFile.new
           fasta_file.fasta = image_param[:uploaded_data]
+          fasta_file.is_generated = false
           fasta_file.save
         end
       end
@@ -29,7 +30,7 @@ class FastaFilesController < ApplicationController
   def extract_sequences
     fasta_file = FastaFile.find(params[:id])
     fasta_file.extract_sequences
-    render :inline => 'Loaded'    
+    render :inline => 'Extracted'    
   end
   
   

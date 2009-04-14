@@ -1,6 +1,6 @@
 class OntologiesController < ApplicationController
   active_scaffold :ontologies do |config|
-     config.list.label = "Ontolory"
+     config.list.label = "Ontology"
      config.list.columns = [:name,:definition,:terms] 
      config.create.columns = [:name,:definition] 
      config.update.columns = [:name,:definition] 

@@ -1,8 +1,8 @@
 
 <div class="active-scaffold active-scaffold-blast blast-view default-theme">
-
-  <% form_tag :action => 'blast',  :method => :get  do -%>
-
+  <% form_for :blast_command, :url=> {:action => 'blast'}  do |f | -%>
+  <%= error_messages_for :blast_command  %>
+<%= error_messages_for :term  %>
 <div class="new-view blast-view view">
   <h4>Blast Files </h4>
       <div class="messages-container" id="blast-create--messages"/>
@@ -11,29 +11,35 @@
     <table class='blast-sub-form-table'   width="100%">
 	<tr>
 		<th>Query File</th>
-		<td><%= select_tag :query_biodatabase_id, options_for_select(@biodatabase_options), :size=>"10" %></td>
+		<td><%= f.select  :query_biodatabase_id, @biodatabase_options,{}, :size=>"10" %></td>
 		<th>Db File</th>
-		<td><%= select_tag :db_biodatabase_id, options_for_select(@biodatabase_options), :size=>"10"   %></td>
+		<td><%= f.select :db_biodatabase_id, @biodatabase_options,{}, :size=>"10"  %></td>
 	</tr>
 	</table>
 </td></tr>
 <tr><td>
 	<table class='blast-sub-form-table' >
+<% fields_for :term do |term_form| %>
     <tr>
-		<th>Output name</th>
-		<td><%= text_field_tag :term_name %></td>
+		<th>Term Name</th>
+		<td><%= term_form.text_field :name %></td>
 	</tr>		
+ <tr>
+		<th>Ontology </th>
+		<td><%= term_form.select :ontology_id, Ontology.find(:all).map { |ont| [ont.name, ont.id] } %></td>
+	</tr>		
+<% end %>
     <tr>
 		<th>E Value</th>
-		<td><%= text_field_tag :evalue %></td>
+		<td><%= f.text_field :evalue%></td>
 	</tr>
 	<tr>
 		<th>Identity</th>
-		<td><%= text_field_tag :identity %></td>
+		<td><%= f.text_field :identity  %></td>
 	</tr>
 	<tr>
 		<th>Score</th>
-		<td><%= text_field_tag :score %></td>
+		<td><%= f.text_field :score  %></td>
 	</tr>		
 
 </td></tr>
