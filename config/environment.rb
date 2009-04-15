@@ -65,4 +65,15 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
+  config.active_record.observers = :user_observer
 end
+# Third, add your SMTP settings
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :address => "mail.yourrailsapp.com",
+  :port => 25,
+  :domain => "mail.yourrailsapp.com",
+  :user_name => "carmelyne@yourrailsapp.com",
+  :password => "yourrailsapp",
+  :authentication => :login
+}
