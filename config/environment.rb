@@ -77,3 +77,6 @@ ActionMailer::Base.smtp_settings = {
   :password => "yourrailsapp",
   :authentication => :login
 }
+
+ExceptionNotifier.exception_recipients = %w(kenglish@gmail.com)
+
