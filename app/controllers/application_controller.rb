@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   include AuthenticatedSystem
   before_filter :login_required
+  filter_parameter_logging :password, :password_confirmation
 
   helper :all # include all helpers, all the time
 
