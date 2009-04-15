@@ -104,5 +104,19 @@ div.loading {
 	background: url(/images/active_scaffold/default/indicator.gif);
 	text-indent: -999px;
 }
+div.flash-messages-container {
+border:medium none;
+margin:0 7px;
+width:400px;
+} 
 
-*/
+
+div.flash-messages-errorExplanation {
+	background-color:#FFCCCC;
+	border:1px solid #FF6666;
+	margin:2px 0;
+	padding:7px;
+	font-weight:bold;
+
+
+} 

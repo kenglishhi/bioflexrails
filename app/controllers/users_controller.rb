@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
-  skip_before_filter :login_required, :only => [:new, :create] 
+  skip_before_filter :login_required
   
 
   # render new.rhtml
@@ -32,10 +32,10 @@ class UsersController < ApplicationController
       redirect_to '/login'
     when params[:activation_code].blank?
       flash[:error] = "The activation code was missing.  Please follow the URL from your email."
-      redirect_back_or_default('/')
+      redirect_to('/')
     else 
       flash[:error]  = "We couldn't find a user with that activation code -- check your email? Or maybe you've already activated -- try signing in."
-      redirect_back_or_default('/')
+      redirect_to('/')
     end
   end
 end

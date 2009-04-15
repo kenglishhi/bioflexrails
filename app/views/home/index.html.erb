@@ -1,20 +1,22 @@
-<% if logged_in? %> 
-
-
 
 <h2>Welcome to BioFastaCoconutIsland,</h2>
-
 <p>
 Get started:
 </p>
+<% unless flash_messages.empty? %>
+
+<div class="flash-messages-container"> 
+	<div class="flash-messages-errorExplanation"> 
+	<%= flash_messages %> 
+	</div>
+</div>
+<% end  %>
+
+<% if logged_in? %> 
 <ul>
 	 <li><%= link_to "Upload your fasta files", :controller => 'fasta_files', :action => 'upload_many' %></li>
 </ul>
 <% else %>
-<h2>Welcome to BioFastaCoconutIsland,</h2>
-<p>
-Get started:
-</p>
 <ul>
 	 <li><%= link_to "Login to your account" , "/login"  %>
 	 <li><%= link_to "Signup for an account" , "/signup"  %>
