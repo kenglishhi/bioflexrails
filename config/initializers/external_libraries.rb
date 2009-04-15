@@ -4,11 +4,11 @@ require 'rubygems'
 require 'bio'
 
 #load the biographics library
-require 'bio-graphics'
+#require 'bio-graphics'
 
 #load the sql views extension library
-gem 'rails_sql_views'
-require 'rails_sql_views'
+#gem 'rails_sql_views'
+#require 'rails_sql_views'
 
 #load the analysis class that contains the implemented bioinformatics tools
 #require 'analysis.rb'
