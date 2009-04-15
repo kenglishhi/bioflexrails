@@ -1,7 +1,22 @@
-<h2>Welcome to biofastaRockIsland,</h2>
+<% if logged_in? %> 
+
+
+
+<h2>Welcome to BioFastaCoconutIsland,</h2>
+
 <p>
 Get started:
 </p>
 <ul>
 	 <li><%= link_to "Upload your fasta files", :controller => 'fasta_files', :action => 'upload_many' %></li>
 </ul>
+<% else %>
+<h2>Welcome to BioFastaCoconutIsland,</h2>
+<p>
+Get started:
+</p>
+<ul>
+	 <li><%= link_to "Login to your account" , "/login"  %>
+	 <li><%= link_to "Signup for an account" , "/signup"  %>
+</ul>
+<% end  %>

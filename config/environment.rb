@@ -70,10 +70,10 @@ end
 # Third, add your SMTP settings
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  :address => "mail.yourrailsapp.com",
+  :address => "gp202.ics.hawaii.edu",
   :port => 25,
-  :domain => "mail.yourrailsapp.com",
-  :user_name => "carmelyne@yourrailsapp.com",
+  :domain => "gp202.ics.hawaii.edu",
+  :user_name => "kenglish@gp202.ics.hawaii.edu",
   :password => "yourrailsapp",
   :authentication => :login
 }

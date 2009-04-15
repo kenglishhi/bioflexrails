@@ -1,4 +1,5 @@
 class FastaFilesController < ApplicationController
+  before_filter :login_required
 
   active_scaffold :fasta_files do |config| 
     

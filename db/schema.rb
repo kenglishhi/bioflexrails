@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090414084237) do
+ActiveRecord::Schema.define(:version => 20090415043014) do
 
   create_table "biodatabase", :primary_key => "biodatabase_id", :force => true do |t|
     t.string "name",        :limit => 128, :null => false
@@ -316,5 +316,23 @@ ActiveRecord::Schema.define(:version => 20090414084237) do
     t.string  "synonym", :null => false
     t.integer "term_id", :null => false
   end
+
+  create_table "user", :primary_key => "user_id", :force => true do |t|
+    t.string   "login",                     :limit => 40
+    t.string   "name",                      :limit => 100, :default => ""
+    t.string   "email",                     :limit => 100
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token",            :limit => 40
+    t.datetime "remember_token_expires_at"
+    t.string   "activation_code",           :limit => 40
+    t.datetime "activated_at"
+    t.string   "state",                                    :default => "passive"
+    t.datetime "deleted_at"
+  end
+
+  add_index "user", ["login"], :name => "index_user_on_login", :unique => true
 
 end

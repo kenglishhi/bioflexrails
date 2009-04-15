@@ -3,7 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Bio Rails App</title>
+<title>BioFastaCoconutIsland</title>
 
    <%= javascript_include_tag :defaults %>
    <%= active_scaffold_includes %>
@@ -15,28 +15,33 @@
 <body>
 
 <div id="birhead">
+  <h1><%= link_to "BioFastaCoconutIsland", '/' %></h1>
+  <div id="birhead-info">
+  <div id="top-right-menu">
+  <p> <span class="turbo-nag hidden" style="display: inline;"> 
+  <% if logged_in? %> 
+   Hello <%= current_user.login %>, 
+  <%= link_to "Fasta Files", :controller => 'fasta_files' %> 
+   |
+  <%= link_to "Databases", :controller => 'biodatabases' %>
+  |
+  <%= link_to "Sequences", :controller => 'biosequences' %>
+   |
+  <%= link_to "Terms", :controller => 'terms' %>
+  |
+  <%= link_to "Ontology", :controller => 'ontologies' %>
+  |
+  <%= link_to "Sequence Relationship", :controller => 'bioentry_relationships' %>
+  |
+  <%= link_to "Blast", :controller => 'blast' %>
+  |
+  <%= link_to "Logout", "/logout" %>
+  <% else %> 
+  <%= link_to "Login", "/login" %>
+  <% end %>
 
-<h1><%= link_to "Bio Rails App", '/' %></h1>
-<div id="birhead-info">
-<div id="top-right-menu">
-<p> <span class="turbo-nag hidden" style="display: inline;"> 
-
-<%= link_to "Fasta Files", :controller => 'fasta_files' %> 
- |
-<%= link_to "Databases", :controller => 'biodatabases' %>
-|
-<%= link_to "Sequences", :controller => 'biosequences' %>
- |
-<%= link_to "Terms", :controller => 'terms' %>
-|
-<%= link_to "Ontology", :controller => 'ontologies' %>
-|
-<%= link_to "Sequence Relationship", :controller => 'bioentry_relationships' %>
-|
-<%= link_to "Blast", :controller => 'blast' %>
-
-</div>
-</div>
+  </div>
+  </div>
 </div>
 
 
