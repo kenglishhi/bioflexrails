@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   include AuthenticatedSystem
   before_filter :login_required
-  filter_parameter_logging :password, :password_confirmation
+#  filter_parameter_logging :password, :password_confirmation
 
   helper :all # include all helpers, all the time
 
@@ -16,5 +16,5 @@ class ApplicationController < ActionController::Base
   # See ActionController::Base for details 
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
-  # filter_parameter_logging :password
+   filter_parameter_logging :password
 end
