@@ -67,16 +67,14 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
   config.active_record.observers = :user_observer
 end
-# Third, add your SMTP settings
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-  :address => "gp202.ics.hawaii.edu",
-  :port => 25,
-  :domain => "gp202.ics.hawaii.edu",
-  :user_name => "kenglish@gp202.ics.hawaii.edu",
-  :password => "yourrailsapp",
-  :authentication => :login
-}
+# Use sendmail send messages
+ActionMailer::Base.delivery_method = :sendmail
+
+ActionMailer::Base.sendmail_settings = { 
+  :location       => '/usr/sbin/sendmail', 
+  :arguments      => '-i -t'
+} 
+
 
 ExceptionNotifier.exception_recipients = %w(kenglish@gmail.com)
 
