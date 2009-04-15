@@ -1,8 +1,5 @@
 
 <h2>Welcome to BioFastaCoconutIsland,</h2>
-<p>
-Get started:
-</p>
 <% unless flash_messages.empty? %>
 
 <div class="flash-messages-container"> 
@@ -11,7 +8,9 @@ Get started:
 	</div>
 </div>
 <% end  %>
-
+<p>
+   Get started:
+</p>
 <% if logged_in? %> 
 <ul>
 	 <li><%= link_to "Upload your fasta files", :controller => 'fasta_files', :action => 'upload_many' %></li>
