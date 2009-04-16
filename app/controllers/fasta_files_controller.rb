@@ -21,6 +21,7 @@ class FastaFilesController < ApplicationController
       params[:fasta_files].each do | image_param |
         unless image_param[:uploaded_data].blank?
           fasta_file = FastaFile.new
+          logger.error("[kenglish] uploaded data is #{image_param[:uploaded_data].inspect}")
           fasta_file.fasta = image_param[:uploaded_data]
           fasta_file.is_generated = false
           fasta_file.save
@@ -29,6 +30,7 @@ class FastaFilesController < ApplicationController
       redirect_to :action => :index
     end
   end
+  
   def extract_sequences
     fasta_file = FastaFile.find(params[:id])
     fasta_file.extract_sequences
