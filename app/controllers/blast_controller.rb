@@ -1,6 +1,6 @@
 class BlastController < ApplicationController
   include BioUtils
-
+  before_filter :create_default_ontolgoy, :only => :index
   def index
 #     @fasta_file_options = FastaFile.find(:all).map{ |f| [f.fasta_file_name,f.id] }  
      @blast_command = BlastCommand.new(:evalue => 0.0001 ) 
@@ -27,7 +27,9 @@ class BlastController < ApplicationController
     logger.error("[kenglish] called run" ) 
     blast_command = BlastCommand.find(params[:id] ) 
     blast_command.run_command
-    render :json => {:result_url => url_for(:controller=> 'bioentry_relationships', :action =>'index', :search => blast_command.term.name)  } 
+    blast_command.create_fastas
+    render :json => {:result_url => url_for(:controller=> 'bioentry_relationships', :action =>'index', :search => blast_command.term.name),
+             :matches =>blast_command.matches, :number_of_fastas =>blast_command.number_of_fastas  }.to_json
 
   end
 #    flash[:errors] = []
@@ -60,5 +62,11 @@ class BlastController < ApplicationController
 #    query_biodatabase.blast_against(db_biodatabase, term, { :evalue => params[:evalue].to_f, :identity => params[:identity], :score => params[:score] }  ) 
 #    redirect_to :controller => 'bioentry_relationships',:action =>'index'
 #  end
-  
+  private
+  def create_default_ontolgoy
+    if Ontology.count ==0
+        Ontology.create(:name => 'Default Ontology')
+    end
+    Ontology.find(:all).map { |ont| [ont.name, ont.id] }
+  end  
 end
