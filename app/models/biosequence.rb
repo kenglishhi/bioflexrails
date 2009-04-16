@@ -3,9 +3,10 @@ require 'stringio'
 
 class Biosequence < ActiveRecord::Base
   set_primary_key :bioentry_id
-  belongs_to :bioentry
+  belongs_to :bioentry, :dependent => :destroy
+  validates_presence_of :bioentry
 
- delegate :name, :to => :bioentry
+  delegate :name, :to => :bioentry
   def self.draw_graphic(value)
       #get the name and length of the main feature to be drawn
      main_feature = Bioentry.find(value)
@@ -24,12 +25,7 @@ class Biosequence < ActiveRecord::Base
         @my_panel.draw(output)
         return output.string
   end
-  def self.load_fasta(file)
-    ff = Bio::FlatFile.open(Bio::FastaFormat, file )
-
-    ff.each do |entry|
-#      self.create(:seq => :version: nil, length: nil, alphabet: nil, >)
-      
-    end  
+  def to_fasta
+     ">#{bioentry.name}\n#{seq}\n"
   end
 end

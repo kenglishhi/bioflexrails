@@ -1,10 +1,21 @@
 class Biodatabase < ActiveRecord::Base
-  has_many :bioentries #,:class_name =>"Bioentry", :foreign_key => "biodatabase_id"
+  has_many :bioentries, :dependent => :destroy
   has_one :fasta_file #,:class_name =>"Bioentry", :foreign_key => "biodatabase_id"
   validates_uniqueness_of :name
 
-  def blast_against_db(db_biodatabase, term, options)
+  def load_fasta
+    logger.error("[kenglish] load fasta file #{fasta_file.fasta.path}")
+    ff = Bio::FlatFile.open(Bio::FastaFormat, fasta_file.fasta.path )
+    ff.each do |entry|
+      Bioentry.transaction do
+        bioentry = Bioentry.create(:biodatabase => self, :name => entry.definition, :accession => entry.definition, :version => 1)
+        Biosequence.create(:bioentry => bioentry, :seq => entry.seq, :version => 1, :alphabet => 'dna', :length => entry.seq.length)
+      end
+    end
+  end    
+  
 
+  def blast_against_db(db_biodatabase, term, options)
     db_biodatabase.fasta_file.formatdb 
     cmd_line_args = "" 
     factory = Bio::Blast.local('blastn', db_biodatabase.fasta_file.fasta.path, cmd_line_args ) 
@@ -13,13 +24,12 @@ class Biodatabase < ActiveRecord::Base
       if  bioentry.biosequence
         report = factory.query(bioentry.biosequence.seq) 
         report.each do |hit|
-          
-          if hit.evalue < options[:evalue]
-            object_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',hit.definition,db_biodatabase.name ])
+        if hit.evalue < options[:evalue]
+          object_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',hit.definition,db_biodatabase.name ])
 #            puts object_bioentry.biosequence.seq
-            BioentryRelationship.create(:term => term, :subject_bioentry => bioentry, :object_bioentry => object_bioentry)
+           BioentryRelationship.create(:term => term, :subject_bioentry => bioentry, :object_bioentry => object_bioentry)
 #            puts "HIT:#{hit.definition} evalue:#{hit.evalue} class:#{hit.evalue.class}"
-          else
+         else
 #            puts "evalue too big #{hit.evalue}"
           end
         end
@@ -50,10 +60,9 @@ class Biodatabase < ActiveRecord::Base
 #            puts "evalue too big #{hit.evalue}"
           end
         end      
-      
-      
     end
-  end  
+  end
+  
   def blast_against(db_biodatabase, term, options)
     options[:evalue] = 0.001 unless options[:evalue] 
     db_biodatabase.fasta_file.formatdb
@@ -73,7 +82,6 @@ class Biodatabase < ActiveRecord::Base
     ff.each do |report|
       # For example, prints query_def and target_def
       report.each do |hit|
-    
         subject_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',report.query_def[0..39],self.name ])
         object_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',hit.target_def[0..39],db_biodatabase.name ])
         if  subject_bioentry && object_bioentry
