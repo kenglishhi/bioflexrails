@@ -16,8 +16,20 @@
 
 <div id="birhead">
   <h1><%= link_to "BioFastaCoconutIsland", '/' %></h1>
+
+
+         
+
   <div id="birhead-info">
-  <div id="top-right-menu">
+ <div id="top-left-menu"  class="birhead-link-menu">
+  <% if logged_in? %>
+      <%= link_to "Logout", "/logout" %>
+  <% else %>
+      <%= link_to "Login", "/login" %>
+  <% end %>
+  </div>  
+
+  <div id="top-right-menu"  class="birhead-link-menu">
   <p> <span class="turbo-nag hidden" style="display: inline;"> 
   <% if logged_in? %> 
    Hello <%= current_user.login %>, 
@@ -34,10 +46,7 @@
   <%= link_to "Sequence Relationship", :controller => 'bioentry_relationships' %>
   |
   <%= link_to "Blast", :controller => 'blast' %>
-  |
-  <%= link_to "Logout", "/logout" %>
-  <% else %> 
-  <%= link_to "Login", "/login" %>
+
   <% end %>
 
   </div>

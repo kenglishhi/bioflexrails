@@ -25,21 +25,28 @@ p, ul, ol, blockquote {
 }
 #top-right-menu {
 	float:right;
+}
+#top-left-menu {
+	float:left;
+}
+
+.birhead-link-menu {
+	color:#999999;
 	font-size:12px;
 	height:46px;
-	line-height:46px;
+	line-height:46px;    
 }
-#top-right-menu {
-	color:#999999;
-}
-#top-right-menu a:hover, #footer a:hover {
+.birhead-link-menu a:hover, #footer a:hover {
 	color:#FFFFFF;
 	text-decoration:underline !important;
 }
-#top-right-menu a:link, #top-right-menu a:visited {
-color:#CCCCCC;
-text-decoration:none;
+.birhead-link-menu a:link, .birhead-link-menu a:visited {
+    color:#CCCCCC;
+    text-decoration:none;
 }
+
+
+
 #birhead-info {
 	margin:0 0 0 15px;
 	padding-right:15px;
