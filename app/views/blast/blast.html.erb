@@ -8,7 +8,9 @@ new Ajax.Request(url, {
     var notice = $('notice');
     var json = transport.responseText.evalJSON(true);
     
-    notice.update('Blast Completed! <a href="' + json.result_url +'"> View Results</a>' );    
+    notice.update('Blast Completed!<br /> Matched ' +json.matches  + ' sequences. <br /> '+
+                  'Generated '+ json.number_of_fastas  + ' fasta files<br />' +
+                  '<a href="' + json.result_url +'"> View Results</a>' );
   },
   onFailure: function(transport) {
     var notice = $('notice');
@@ -24,7 +26,8 @@ new Ajax.Request(url, {
    Blast Job Number :<%= @blast_command.id %> 
   
   <div id='notice'>
-    Blast Command is running, do not close this page....
+      <%= image_tag "active_scaffold/default/indicator.gif" %>
+      Blast Command is running, do not close this page....
   </div>
 </div>
 </div>
