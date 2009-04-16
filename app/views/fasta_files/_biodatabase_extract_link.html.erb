@@ -1,3 +1,7 @@
+<% if record.is_generated? %>
+   Generated
+<% else %>
+
 <% css_id = "activate-or-deactivate_#{record.id}" %>
 <span id="<%= css_id %>">
 <%= link_to_remote "Extract Sequences", 
@@ -9,4 +13,5 @@
 				   :loaded => "$('extract-sequence-warning').hide(); $('#{css_id}').update('Extracted'); "
  
 %>
-</span> 
+</span>
+<% end %>
