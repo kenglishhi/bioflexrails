@@ -29,19 +29,19 @@
   </component>
   <component name="RailsViewFoldersManager">
     <USER_URLS url="file://$MODULE_DIR$/public/stylesheets" />
-    file://$MODULE_DIR$/public/stylesheets
+    file:///home/kenglish/workspace/bioflexrails/public/stylesheets
     <USER_URLS url="file://$MODULE_DIR$/public/javascripts" />
-    file://$MODULE_DIR$/public/javascripts
+    file:///home/kenglish/workspace/bioflexrails/public/javascripts
     <USER_URLS url="file://$MODULE_DIR$/lib" />
-    file://$MODULE_DIR$/lib
+    file:///home/kenglish/workspace/bioflexrails/lib
     <USER_URLS url="file://$MODULE_DIR$/vendor/rails" />
-    file://$MODULE_DIR$/vendor/rails
+    file:///home/kenglish/workspace/bioflexrails/vendor/rails
     <USER_URLS url="file://$MODULE_DIR$/vendor/plugins" />
-    file://$MODULE_DIR$/vendor/plugins
+    file:///home/kenglish/workspace/bioflexrails/vendor/plugins
     <USER_URLS url="file://$MODULE_DIR$/spec" />
-    file://$MODULE_DIR$/spec
+    file:///home/kenglish/workspace/bioflexrails/spec
     <USER_URLS url="file://$MODULE_DIR$/config" />
-    file://$MODULE_DIR$/config
+    file:///home/kenglish/workspace/bioflexrails/config
   </component>
 </module>
 

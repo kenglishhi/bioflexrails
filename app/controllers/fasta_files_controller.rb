@@ -10,7 +10,7 @@ class FastaFilesController < ApplicationController
     config.update.columns = [:label] 
     config.show.columns = [:label, :fasta_file_name, :fasta_file_size,:created_at,:fasta_data]
     config.action_links.add "Upload Files", :action => 'upload_many', :type => :table, :page => true
-    config.actions.exclude :create
+    config.actions.exclude :create, :show
 #    config.action_links.add "Blast", :parameters => {:controller => 'blast'},
 #    :action => 'index', :type => :table, :page => true
     

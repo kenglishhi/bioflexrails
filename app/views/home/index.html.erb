@@ -13,7 +13,8 @@
 </p>
 <% if logged_in? %> 
 <ul>
-	 <li><%= link_to "Upload your fasta files", :controller => 'fasta_files', :action => 'upload_many' %></li>
+	<li><%= link_to "Upload your fasta files", :controller => 'fasta_files', :action => 'upload_many' %></li>
+    <li><%= link_to "View your database of sequences", :controller => 'biosequences', :action => 'index' %></li>    
 </ul>
 <% else %>
 <ul>
