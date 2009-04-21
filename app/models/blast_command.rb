@@ -1,50 +1,107 @@
 class BlastCommand < ActiveRecord::Base
-
+  has_attached_file :output 
   belongs_to :term
 
-  belongs_to :query_biodatabase,    :class_name => 'Biodatabase', :foreign_key => 'query_biodatabase_id'
-  belongs_to :db_biodatabase, :class_name => 'Biodatabase', :foreign_key => 'db_biodatabase_id'
+  belongs_to :query_fasta_file,    :class_name => 'FastaFile', :foreign_key => 'query_fasta_file_id'
+  belongs_to :db_fasta_file, :class_name => 'FastaFile', :foreign_key => 'db_fasta_file_id'
 
-  validates_presence_of :query_biodatabase_id
-  validates_presence_of :db_biodatabase_id
+  validates_presence_of :query_fasta_file_id
+  validates_presence_of :db_fasta_file_id
   validates_presence_of :evalue
   validates_presence_of :term_id
   attr_accessor :matches
   attr_accessor :number_of_fastas
   
-  def run_command
+#  def run_command
+#    options={}
+#    options[:evalue] = self.evalue || 0.001
+#    db_biodatabase.fasta_file.formatdb
+#    start_time = Time.now
+#    command = " blastall -p blastn -i #{query_biodatabase.fasta_file.fasta.path} -d #{db_biodatabase.fasta_file.fasta.path} -e #{options[:evalue]}  -b 20 -v 20 "
+#    tempfile = Tempfile.new('blastout')
+#    tempfile.close(false)
+#    command <<  "-o  #{tempfile.path} "
+#    logger.error( "[kenglish] command = #{command} " )
+#    system(*command)
+#    tempfile.open
+#
+#    BioentryRelationship.delete_all(['term_id = ?' , term.id])
+#    ff = Bio::FlatFile.open(tempfile)
+#    @matches =0
+#    ff.each do |report|
+#      subject_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',report.query_def[0..39],query_biodatabase.name ])
+#      report.each do |hit|
+#        object_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',hit.target_def[0..39],db_biodatabase.name ])
+#        if  subject_bioentry && object_bioentry
+#          BioentryRelationship.create(:term => term, :subject_bioentry => subject_bioentry, :object_bioentry => object_bioentry)
+#          @matches = @matches + 1
+#        else
+#          puts "kenglish] ERR finding  subject_bioentry = #{subject_bioentry} [#{report.query_def[0..39]},#{query_biodatabase.name}]  or #{object_bioentry} [#{hit.target_def[0..39]},#{db_biodatabase.name}]"
+#        end
+#      end
+#    end
+#    ff.close
+#    tempfile.close(true)
+#    end_time = Time.now
+#    puts "kenglish] BLAST #{query_biodatabase.name} #{db_biodatabase.name} took #{end_time - start_time } "
+#  end
+  def   run_command
+    def match_sequence(query_def, ff)
+      count=0
+      begin
+        sequence = ff.next_entry
+        return unless sequence
+        count =+ 1
+      end  until query_def ==  sequence.definition
+      sequence
+    end
     options={}
-    options[:evalue] = self.evalue || 0.001 
-    db_biodatabase.fasta_file.formatdb
+    options[:evalue] = self.evalue || 0.001
+
+
+    db_fasta_file.formatdb
     start_time = Time.now
-    command = " blastall -p blastn -i #{query_biodatabase.fasta_file.fasta.path} -d #{db_biodatabase.fasta_file.fasta.path} -e #{options[:evalue]}  -b 20 -v 20 "
+    command = " blastall -p blastn -i #{query_fasta_file.fasta.path} -d #{db_fasta_file.fasta.path} -e #{options[:evalue]}  -b 20 -v 20 "
     tempfile = Tempfile.new('blastout')
     tempfile.close(false)
-    command <<  "-o  #{tempfile.path} " 
-    logger.error( "[kenglish] command = #{command} " ) 
+    command <<  "-o  #{tempfile.path} "
+    puts "[kenglish] tempfile.path = #{tempfile.path} " 
+    puts "[kenglish]--------------------- "
+    puts "[kenglish] command = #{command} "
     system(*command)
     tempfile.open
-
-    BioentryRelationship.delete_all(['term_id = ?' , term.id]) 
-    ff = Bio::FlatFile.open(tempfile)
-    @matches =0
-    ff.each do |report|
+    result_ff = Bio::FlatFile.open(tempfile)
+    db_ff = Bio::FlatFile.auto(db_fasta_file.fasta.path)
+    query_ff = Bio::FlatFile.auto(query_fasta_file.fasta.path)
+    
+    result_ff.each do |report|
+      query_ff_entry = match_sequence(report.query_def,query_ff)
+#      puts "------------- \nMATCHED query_ff_entry = #{query_ff_entry.definition}, report.query_def  = #{report.query_def}" if  query_ff_entry
+#      puts "NO MATCHED query_ff_entry = #{report.query_def} " unless  query_ff_entry
+      tempfile = nil
       report.each do |hit|
-        subject_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',report.query_def[0..39],query_biodatabase.name ])
-        object_bioentry = Bioentry.find(:first,:include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',hit.target_def[0..39],db_biodatabase.name ])
-        if  subject_bioentry && object_bioentry
-          BioentryRelationship.create(:term => term, :subject_bioentry => subject_bioentry, :object_bioentry => object_bioentry)
-          @matches = @matches + 1
-        else 
-          puts "kenglish] ERR finding  subject_bioentry = #{subject_bioentry} [#{report.query_def[0..39]},#{query_biodatabase.name}]  or #{object_bioentry} [#{hit.target_def[0..39]},#{db_biodatabase.name}]" 
+        unless tempfile
+          filename =   query_ff_entry.definition[0..39] + ".fasta"
+          tempfile = Tempfile.new(filename)
+          tempfile.puts(query_ff_entry)
         end
+        db_ff.rewind
+        db_ff_entry =  match_sequence(hit.target_def,db_ff)
+        tempfile.puts(db_ff_entry)
+        puts hit.target_def
+#        puts  "db_ff_entry #{db_ff_entry.definition} \n"
       end
+      if tempfile
+        fasta_file = FastaFile.new
+        fasta_file.fasta = tempfile
+        fasta_file.is_generated = true
+        fasta_file.save
+      end      
     end
-    ff.close
-    tempfile.close(true)
-    end_time = Time.now
-    puts "kenglish] BLAST #{query_biodatabase.name} #{db_biodatabase.name} took #{end_time - start_time } "
+
   end
+
+
   def create_fastas
     if self.term
       fasta_groups = {}
@@ -76,7 +133,7 @@ class BlastCommand < ActiveRecord::Base
         fasta_file.save
         @number_of_fastas = @number_of_fastas + 1
         puts    "  #{tempfile.path} {ff.valid?}"
-      #  fasta_group  
+      #  fasta_grou
       end
     end
   end

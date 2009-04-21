@@ -95,12 +95,15 @@ ActiveRecord::Schema.define(:version => 20090415043014) do
   end
 
   create_table "blast_command", :primary_key => "blast_command_id", :force => true do |t|
-    t.integer  "query_biodatabase_id"
-    t.integer  "db_biodatabase_id"
+    t.integer  "query_fasta_file_id"
+    t.integer  "db_fasta_file_id"
     t.integer  "term_id"
     t.float    "evalue"
     t.integer  "identity"
     t.integer  "score"
+    t.string   "output_file_name"
+    t.string   "output_content_type"
+    t.integer  "output_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

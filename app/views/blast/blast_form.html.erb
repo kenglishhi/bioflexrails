@@ -11,9 +11,9 @@
     <table class='blast-sub-form-table'   width="100%">
 	<tr>
 		<th>Query File</th>
-		<td><%= f.select  :query_biodatabase_id, @biodatabase_options,{}, :size=>"10" %></td>
+		<td><%= f.select  :query_fasta_file_id, @fasta_file_options,{}, :size=>"10" %></td>
 		<th>Db File</th>
-		<td><%= f.select :db_biodatabase_id, @biodatabase_options,{}, :size=>"10"  %></td>
+		<td><%= f.select :db_fasta_file_id, @fasta_file_options,{}, :size=>"10"  %></td>
 	</tr>
 	</table>
 </td></tr>
