@@ -1,10 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class FastaFilesControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  # Replace this with your real tests. 
   test "upload file" do
     fdata = fixture_file_upload('/files/file1.fasta', 'text/plain')
     old_count = FastaFile.count

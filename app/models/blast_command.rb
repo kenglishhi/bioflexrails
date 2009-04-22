@@ -1,7 +1,7 @@
 class BlastCommand < ActiveRecord::Base
   has_attached_file :output 
-  belongs_to :term
 
+  belongs_to :term
   belongs_to :query_fasta_file,    :class_name => 'FastaFile', :foreign_key => 'query_fasta_file_id'
   belongs_to :db_fasta_file, :class_name => 'FastaFile', :foreign_key => 'db_fasta_file_id'
 
@@ -57,7 +57,6 @@ class BlastCommand < ActiveRecord::Base
     end
     options={}
     options[:evalue] = self.evalue || 0.001
-
 
     db_fasta_file.formatdb
     start_time = Time.now

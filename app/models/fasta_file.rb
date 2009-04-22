@@ -2,8 +2,9 @@ class FastaFile < ActiveRecord::Base
   has_attached_file :fasta # , :styles => { :fastadb => { :quality => :better } },
     # :processors => [:formatdb]
   belongs_to :biodatabase , :dependent => :destroy
-  before_validation :set_label
   validates_uniqueness_of :label
+
+  before_validation :set_label
   before_destroy :remove_fasta_dbs
 
   def is_generated?
