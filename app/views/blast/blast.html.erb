@@ -10,7 +10,7 @@ new Ajax.Request(url, {
     
     notice.update('Blast Completed!<br /> Matched ' +json.matches  + ' sequences. <br /> '+
                   'Generated '+ json.number_of_fastas  + ' fasta files<br />' +
-                  '<a href="' + json.result_url +'"> View Results</a>' );
+                  '<a href="' + json.output_file_url +'"> View Results</a>' );
   },
   onFailure: function(transport) {
     var notice = $('notice');

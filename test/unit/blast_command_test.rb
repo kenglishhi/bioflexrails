@@ -51,6 +51,11 @@ class BlastCommandTest < ActiveSupport::TestCase
     assert blast_command.valid?, "Should create blast command #{blast_command.errors.full_messages.to_sentence}"
     old_fasta_file_count = FastaFile.count
     blast_command.run_command
+    
+    puts blast_command.output.path    
+    assert_not_nil   blast_command.output
+    assert  blast_command.output_file_name =~ /txt$/
+
     assert old_fasta_file_count <  FastaFile.count, "Old count should equal new count."
     FastaFile.find(:all, :conditions => 'fasta_file_id > 4').each do| fasta_file |
       assert fasta_file.destroy

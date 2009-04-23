@@ -40,4 +40,7 @@ end
 
 class FastaFile < ActiveRecord::Base
   has_attached_file :fasta, :path => ":rails_root/test/fixtures/files/:class/:attachment/:id/:basename.:extension"
-end  
+end
+class BlastCommand < ActiveRecord::Base
+  has_attached_file :output, :path => ":rails_root/test/fixtures/files/:class/:attachment/:id/:basename.:extension"
+end

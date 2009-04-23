@@ -52,39 +52,48 @@ class BlastCommand < ActiveRecord::Base
     db_fasta_file.formatdb
     start_time = Time.now
     command = " blastall -p blastn -i #{query_fasta_file.fasta.path} -d #{db_fasta_file.fasta.path} -e #{options[:evalue]}  -b 20 -v 20 "
-    tempfile = Tempfile.new('blastout')
-    tempfile.close(false)
-    command <<  "-o  #{tempfile.path} "
-    puts "[kenglish] tempfile.path = #{tempfile.path} " 
+    output_file_handle = Tempfile.new("blastout_#{blast_command_id}")
+    output_file_handle.close(false)
+    command <<  "-o  #{output_file_handle.path} "
+    puts "[kenglish] output_file_handle.path = #{output_file_handle.path} "
     puts "[kenglish]--------------------- "
     puts "[kenglish] command = #{command} "
     system(*command)
-    tempfile.open
-    result_ff = Bio::FlatFile.open(tempfile)
+    puts "output_file_handle.path = #{output_file_handle.path}"
+    output_file_handle.close
+    new_output_file_name = output_file_handle.path.sub(/\.$/,"").sub(/$/,".txt")
+    FileUtils.cp(output_file_handle.path,new_output_file_name)
+    puts "new_output_file_name.path = #{new_output_file_name}"
+    self.output = File.open(new_output_file_name)
+    self.save
+    puts "self.output.path = #{self.output.path}"
+    output_file_handle.open
+    result_ff = Bio::FlatFile.open(output_file_handle)
     @number_of_fastas = 0
-
+    @matches =0
     result_ff.each do |report|
       query_entry = query_fasta_file.match_sequence_def(report.query_def)
-      tempfile = nil
+      fasta_file_handle = nil
       report.each do |hit|
-        unless tempfile
+        unless fasta_file_handle
           filename =   query_entry.definition[0..39] + ".fasta"
-          tempfile = Tempfile.new(filename)
-          tempfile.puts(query_entry)
+          fasta_file_handle = Tempfile.new(filename)
+          fasta_file_handle.puts(query_entry)
         end
+        @matches += 1
         db_entry = db_fasta_file.match_sequence_def(hit.target_def,true)
-        tempfile.puts(db_entry)
+        fasta_file_handle.puts(db_entry)
       end
-      if tempfile
+      if fasta_file_handle
         fasta_file = FastaFile.new
-        fasta_file.fasta = tempfile
+        fasta_file.fasta = fasta_file_handle
         fasta_file.is_generated = true
         fasta_file.save
-        @number_of_fastas += @number_of_fastas 
+        @number_of_fastas += 1 
       end
-
     end
 
+    
   end
 
 
@@ -123,6 +132,6 @@ class BlastCommand < ActiveRecord::Base
       end
     end
   end
-
+   
 end
 
