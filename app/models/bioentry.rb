@@ -4,8 +4,8 @@ class Bioentry < ActiveRecord::Base
   belongs_to :taxon #, :class_name => "Taxon",:foreign_key =>"taxon_id"
   has_one :biosequence, :dependent => :destroy
   has_one :fasta_file
-  named_scope :sequence_in_database, lambda { |query_def, db_name| 
-    { :include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.name = ? ',query_def,db_name]}
+  named_scope :sequence_in_database, lambda { |query_def, biodatabase_id|
+    {  :conditions=> ['name = ?  AND biodatabase_id = ? ',query_def,biodatabase_id]}
   } 
 
 

@@ -61,7 +61,7 @@ class BlastCommand < ActiveRecord::Base
     system(*command)
     tempfile.open
     result_ff = Bio::FlatFile.open(tempfile)
-
+    @number_of_fastas = 0
 
     result_ff.each do |report|
       query_entry = query_fasta_file.match_sequence_def(report.query_def)
@@ -80,7 +80,7 @@ class BlastCommand < ActiveRecord::Base
         fasta_file.fasta = tempfile
         fasta_file.is_generated = true
         fasta_file.save
-        return
+        @number_of_fastas += @number_of_fastas 
       end
 
     end

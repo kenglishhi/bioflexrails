@@ -53,7 +53,6 @@ class FastaFile < ActiveRecord::Base
     extensions = ["nhr", "nsq", "nil"]
     extensions.each do | extension |
       dbfile = "#{fasta.path}.#{extension}"
-      puts "dbfile #{dbfile}"
       File.delete dbfile  if File.exist? dbfile
     end
   end
@@ -66,8 +65,8 @@ class FastaFile < ActiveRecord::Base
   def match_sequence_def(query_def, rewind_flag=false)
 
     if self.biodatabase_id
-      bioentry = Bioentry.find(:first, :include =>:biodatabase, :conditions=> ['bioentry.name = ?  AND biodatabase.biodatabase_id = ? ', query_def[0..39], biodatabase_id ])
-      return bioentry.to_fasta_format if  bioentry
+      bioentries = Bioentry.sequence_in_database( query_def[0..39], biodatabase_id )
+      return bioentries.first.to_fasta_format unless  bioentries.empty?
       puts "COULD NOT FIND BIOENTRY, [#{query_def[0..39]}, #{biodatabase_id} "
     end
 
