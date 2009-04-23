@@ -1,2 +1,8 @@
---- {}
-
+--- 
+term_001: 
+  name: Term 1
+  ontology_id: "1"
+  is_obsolete: 
+  term_id: "1"
+  definition: 
+  identifier: 

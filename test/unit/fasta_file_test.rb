@@ -18,7 +18,7 @@ class FastaFileTest < ActiveSupport::TestCase
     assert !File.exists?( old_path ), "File should be deleted after destroy"    
   end
   test "create fasta file fails" do
-    filename = fasta_file(:fasta_file_004).fasta_file_name 
+    filename = fasta_file(:fasta_file_001).fasta_file_name 
     tempfile = File.open(File.dirname(__FILE__) + "/../fixtures/files/#{filename}")
 
     fasta_file = FastaFile.new

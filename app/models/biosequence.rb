@@ -28,4 +28,7 @@ class Biosequence < ActiveRecord::Base
   def to_fasta
      ">#{bioentry.name}\n#{seq}\n"
   end
+  def to_fasta_format
+     Bio::FastaFormat.new(self.to_fasta)
+  end
 end

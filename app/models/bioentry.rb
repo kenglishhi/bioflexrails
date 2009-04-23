@@ -17,4 +17,7 @@ class Bioentry < ActiveRecord::Base
   def to_fasta
     self.biosequence.to_fasta
   end
+  def to_fasta_format
+    self.biosequence.to_fasta_format
+  end
 end
