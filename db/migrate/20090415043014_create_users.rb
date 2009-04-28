@@ -16,6 +16,22 @@ class CreateUsers < ActiveRecord::Migration
       t.column :deleted_at,                :datetime
     end
     add_index :user, :login, :unique => true
+    User.create(:login => 'kenglish',
+                :name  => 'Kevin English',
+                :email => 'kenglish@gmail.com',
+                :crypted_password => 'f1f2d888e1012fac645ed3ab108d5654f76c4550',
+                :salt => '156ca62050a1c6a8df1ad6fb89dba5ce15b2989c' ,
+                :activated_at => '2009-04-23 10:24:08',
+                :state =>  'passive')
+
+    User.create(:login => 'poissong',
+                :name  => 'poisson',
+                :email => 'guylaine@hawaii.edu',
+                :crypted_password => 'd3cc86d420e51f1ebe1dce7077e908df97ec57ea',
+                :salt => '11ab7010a700201ca9c0bd4b2907a910eef47cea' ,
+                :activated_at => '2009-04-23 10:24:08',
+                :state =>  'passive')
+    
   end
 
   def self.down

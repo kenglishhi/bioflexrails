@@ -4,6 +4,7 @@ class CreateBlastCommands < ActiveRecord::Migration
       t.integer :query_fasta_file_id, :db_fasta_file_id, :term_id
       t.float   :evalue
       t.integer :identity, :score
+      t.string  :fasta_file_prefix 
       t.string  :output_file_name, :output_content_type
       t.integer :output_file_size
       t.timestamps

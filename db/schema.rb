@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090415043014) do
+ActiveRecord::Schema.define(:version => 20090427004420) do
 
   create_table "biodatabase", :primary_key => "biodatabase_id", :force => true do |t|
     t.string "name",        :limit => 128, :null => false
@@ -101,11 +101,17 @@ ActiveRecord::Schema.define(:version => 20090415043014) do
     t.float    "evalue"
     t.integer  "identity"
     t.integer  "score"
+    t.string   "fasta_file_prefix"
     t.string   "output_file_name"
     t.string   "output_content_type"
     t.integer  "output_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "blast_output_entry", :primary_key => "blast_output_entry_id", :force => true do |t|
+    t.integer "fasta_file_id"
+    t.integer "bioentry_id"
   end
 
   create_table "comment", :primary_key => "comment_id", :force => true do |t|
@@ -142,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20090415043014) do
     t.integer  "fasta_file_size"
     t.integer  "biodatabase_id"
     t.boolean  "is_generated",       :default => false
+    t.integer  "blast_command_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

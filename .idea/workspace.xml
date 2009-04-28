@@ -7,6 +7,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/fasta_files_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/fasta_files_controller_test.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/biosequence.rb" afterPath="$PROJECT_DIR$/app/models/biosequence.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/bioentry.yml" afterPath="$PROJECT_DIR$/test/fixtures/bioentry.yml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/blast_output_entries_test.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/bioentry.rb" afterPath="$PROJECT_DIR$/app/models/bioentry.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/blast_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/blast_controller.rb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/files/fasta_files/fastas/1/EST_Clade_A_1.fasta" afterPath="" />
@@ -17,15 +18,24 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/fasta_file.yml" afterPath="$PROJECT_DIR$/test/fixtures/fasta_file.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/blast/blast.html.erb" afterPath="$PROJECT_DIR$/app/views/blast/blast.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/blast_command_test.rb" afterPath="$PROJECT_DIR$/test/unit/blast_command_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20090414084237_create_blast_commands.rb" afterPath="$PROJECT_DIR$/db/migrate/20090414084237_create_blast_commands.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/files/EST_Clade_A.fasta" afterPath="$PROJECT_DIR$/test/fixtures/files/EST_Clade_A.fasta" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/blast_command.rb" afterPath="$PROJECT_DIR$/app/models/blast_command.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/term.yml" afterPath="$PROJECT_DIR$/test/fixtures/term.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/biodatabase.yml" afterPath="$PROJECT_DIR$/test/fixtures/biodatabase.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/blast/blast_form.html.erb" afterPath="$PROJECT_DIR$/app/views/blast/blast_form.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20090321084233_create_fasta_files.rb" afterPath="$PROJECT_DIR$/db/migrate/20090321084233_create_fasta_files.rb" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/blast_output_entries.rb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20090415043014_create_users.rb" afterPath="$PROJECT_DIR$/db/migrate/20090415043014_create_users.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/fasta_file_test.rb" afterPath="$PROJECT_DIR$/test/unit/fasta_file_test.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_helper.rb" afterPath="$PROJECT_DIR$/test/test_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/ontology.yml" afterPath="$PROJECT_DIR$/test/fixtures/ontology.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/fasta_files_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/fasta_files_controller.rb" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/blast_output_entries.yml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20090427004420_create_blast_output_entries.rb" afterPath="$PROJECT_DIR$/db/migrate/20090427004420_create_blast_output_entries.rb" />
     </list>
     <ignored path="bioflexrails.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,88 +56,88 @@
       <file leaf-file-name="blast_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/blast_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="18" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.0">
+            <state line="15" column="58" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fasta_files_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/fasta_files_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="53" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blast_command.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="blast_command.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/blast_command.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="0" selection-start="5449" selection-end="5449" vertical-scroll-proportion="0.0">
+            <state line="41" column="47" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.31111112">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blast_commands_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/blast_commands_controller.rb">
+      <file leaf-file-name="blast.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/blast/blast.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="68" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
+            <state line="12" column="47" selection-start="579" selection-end="579" vertical-scroll-proportion="-8.64">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fasta_files_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/fasta_files_helper.rb">
+      <file leaf-file-name="biosequence.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/biosequence.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="106" selection-end="201" vertical-scroll-proportion="0.0">
+            <state line="9" column="2" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blast_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/blast_helper.rb">
+      <file leaf-file-name="bioentry.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/bioentry.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="8" column="36" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blast_commands_helper.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/helpers/blast_commands_helper.rb">
+      <file leaf-file-name="blast_output_entry.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/blast_output_entry.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="51" selection-start="116" selection-end="116" vertical-scroll-proportion="0.04311377">
+            <state line="0" column="22" selection-start="6" selection-end="22" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blast_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/blast/blast_form.html.erb">
+      <file leaf-file-name="20090427004420_create_blast_output_entries.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20090427004420_create_blast_output_entries.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="28" selection-start="93" selection-end="106" vertical-scroll-proportion="-1.44">
+            <state line="10" column="54" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test_helper.rb">
+      <file leaf-file-name="fasta_file.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/fasta_file.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="27" selection-start="2025" selection-end="2025" vertical-scroll-proportion="0.0">
+            <state line="67" column="0" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20090414084237_create_blast_commands.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20090414084237_create_blast_commands.rb">
+      <file leaf-file-name="biodatabase.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/biodatabase.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="10" column="41" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blast_command_test.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/blast_command_test.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="0" selection-start="1304" selection-end="1592" vertical-scroll-proportion="-23.04">
               <folding />
             </state>
           </provider>
@@ -179,24 +189,6 @@
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="test" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="bioflexrails" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="bioflexrails" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="unit" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -267,32 +259,6 @@
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="fastas" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="bioflexrails" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="bioflexrails" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="fixtures" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="files" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="blast_commands" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -508,7 +474,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24577294" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
       <window_info id="Web Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
@@ -550,100 +516,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/unit/fasta_file_test.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20090415043014_create_users.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="30" selection-start="8" selection-end="30" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/functional/blast_controller_test.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/blast/blast.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="52" selection-start="569" selection-end="584" vertical-scroll-proportion="-8.64">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/blast_command_test.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="4" selection-start="2027" selection-end="2027" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="27" selection-start="2025" selection-end="2025" vertical-scroll-proportion="0.0">
+        <state line="25" column="37" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20090414084237_create_blast_commands.rb">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="18" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20090321084233_create_fasta_files.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="43" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/fixtures/blast_output_entry.yml">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/blast_command.rb">
+    <entry file="file://$PROJECT_DIR$/test/fixtures/blast_command.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="0" selection-start="5449" selection-end="5449" vertical-scroll-proportion="0.0">
+        <state line="7" column="0" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/blast/blast_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/test/fixtures/biodatabase.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="28" selection-start="93" selection-end="106" vertical-scroll-proportion="-1.44">
+        <state line="14" column="26" selection-start="269" selection-end="269" vertical-scroll-proportion="0.3017964">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20090427004420_create_blast_output_entries.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="54" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/biosequence.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="2" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/blast_output_entry.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="22" selection-start="6" selection-end="22" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/blast_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="18" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.0">
+        <state line="15" column="58" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/fasta_files_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/biodatabase.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="53" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
+        <state line="10" column="41" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/blast_commands_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/bioentry.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="68" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
+        <state line="8" column="36" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/fasta_files_helper.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/fasta_file.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="106" selection-end="201" vertical-scroll-proportion="0.0">
+        <state line="67" column="0" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/blast_helper.rb">
+    <entry file="file://$PROJECT_DIR$/test/unit/blast_command_test.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="35" column="0" selection-start="1304" selection-end="1592" vertical-scroll-proportion="-23.04">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/blast_commands_helper.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/blast/blast.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="51" selection-start="116" selection-end="116" vertical-scroll-proportion="0.04311377">
+        <state line="12" column="47" selection-start="579" selection-end="579" vertical-scroll-proportion="-8.64">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/blast_command.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="47" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.31111112">
           <folding />
         </state>
       </provider>

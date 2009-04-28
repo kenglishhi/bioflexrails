@@ -19,16 +19,10 @@
 </td></tr>
 <tr><td>
 	<table class='blast-sub-form-table' >
-<% fields_for :term do |term_form| %>
     <tr>
-		<th>Term Name</th>
-		<td><%= term_form.text_field :name %></td>
-	</tr>		
- <tr>
-		<th>Ontology </th>
-		<td><%= term_form.select :ontology_id, Ontology.find(:all).map { |ont| [ont.name, ont.id] } %></td>
-	</tr>		
-<% end %>
+		<th>Fasta File Prefix</th>
+		<td><%= f.text_field :fasta_file_prefix %></td>
+	</tr>
     <tr>
 		<th>E Value</th>
 		<td><%= f.text_field :evalue%></td>

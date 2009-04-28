@@ -9,3 +9,9 @@ biodatabase_002:
   biodatabase_id: "2"
   authority: 
   description: 
+biodatabase_default:
+  name: Default Database
+  biodatabase_id: "3"
+  authority:
+  description:
+

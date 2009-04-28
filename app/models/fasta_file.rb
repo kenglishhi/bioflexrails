@@ -6,7 +6,8 @@ class FastaFile < ActiveRecord::Base
 
   before_validation :set_label
   before_destroy :remove_fasta_dbs
-
+  has_one :blast_command
+  
   def is_generated?
     # looks prettier
     is_generated
@@ -63,11 +64,9 @@ class FastaFile < ActiveRecord::Base
   end
 
   def match_sequence_def(query_def, rewind_flag=false)
-
     if self.biodatabase_id
       bioentries = Bioentry.sequence_in_database( query_def[0..39], biodatabase_id )
-      return bioentries.first.to_fasta_format unless  bioentries.empty?
-      puts "COULD NOT FIND BIOENTRY, [#{query_def[0..39]}, #{biodatabase_id} "
+      return bioentries.first unless  bioentries.empty?
     end
 
     open_fasta_file unless @fasta_file_handle
@@ -79,7 +78,16 @@ class FastaFile < ActiveRecord::Base
     end  until query_def ==  sequence.definition
     sequence
   end
+  def find_bioentry(query_def)
+    
+    if self.is_generated
+      bioentry = BlastOutputEntry.find(:first,:include => :bioentry, :conditions => ['bioentry.name = ? ',query_def] )
+    else
+      match_sequence_def(query_def)
+      # search the file
+    end
 
+  end
 
   def close_fasta_file
     @fasta_file_handle.close if @fasta_file_handle

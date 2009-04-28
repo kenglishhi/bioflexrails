@@ -11,11 +11,11 @@ class BlastController < ApplicationController
   end
   
   def blast
-    @term = Term.find_by_name(params[:term][:name]) || Term.create(params[:term] ) 
+#    @term = Term.find_by_name("Default Term") || Term.create(:name => "Default Term" ) 
 
-    @blast_command = BlastCommand.create(params[:blast_command].merge(:term => @term )  ) 
-    if @term.valid? &&  @blast_command.valid? 
-      @term.save
+    @blast_command = BlastCommand.create(params[:blast_command]  )
+    if @blast_command.valid?
+#      @term.save
       @blast_command.save
 
     else 
@@ -29,7 +29,7 @@ class BlastController < ApplicationController
     blast_command = BlastCommand.find(params[:id] ) 
     blast_command.run_command
 
-    render :json => {:result_url => url_for(:controller=> 'bioentry_relationships', :action =>'index', :search => blast_command.term.name),
+    render :json => {:result_url => url_for(:controller=> 'blast_commands', :action =>'index'),
              :matches =>blast_command.matches, :number_of_fastas =>blast_command.number_of_fastas,:output_file_url => blast_command.output.url}.to_json
 
   end
