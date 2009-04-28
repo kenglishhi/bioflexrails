@@ -81,7 +81,7 @@ class FastaFile < ActiveRecord::Base
   def find_bioentry(query_def)
     
     if self.is_generated
-      bioentry = BlastOutputEntry.find(:first,:include => :bioentry, :conditions => ['bioentry.name = ? ',query_def] )
+      bioentry = BlastOutputEntry.find(:first,:include => :bioentry, :conditions => ['bioentry.name = ? ',query_def] ).bioentry
     else
       match_sequence_def(query_def)
       # search the file
